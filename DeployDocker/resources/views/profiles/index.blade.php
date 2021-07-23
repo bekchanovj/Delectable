@@ -18,9 +18,7 @@
                 <div class="pr-5"><strong>201</strong> followers</div>
                 <div class="pr-5"><strong>132</strong> following</div>
             </div>
-            <div class="pt-4 font-weight-bold">{{ $user->profile->title }}</div>
-            <div>{{ $user->profile->description }}</div>
-            <div><a href="#">{{ $user->profile->url }}</a></div>
+            
         </div>
     </div>
 
@@ -29,6 +27,12 @@
     @foreach($user->posts as $post)
         <div class="col-4 pb-4">
             <img src="/storage/{{ $post->image }}" class="w-100" style="height:350px; width:250px;" alt="">
+        </div>
+        <div class="col-4 pb-4">
+           <p> {{ $post->caption }} </p>
+        </div>
+        <div class="col-4 pb-4">
+           <p> {{ $post->title }} </p>
         </div>
     @endforeach
 </div>
