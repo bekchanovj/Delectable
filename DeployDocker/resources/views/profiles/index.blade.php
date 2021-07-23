@@ -11,10 +11,10 @@
                 <div>
                     <h1>{{ $user->name }}</h1>
                 </div>
-                <a href="#">Create a new recipe</a>
+                <a href="/post/create">Create a new recipe</a>
             </div>
             <div class="d-flex">
-                <div class="pr-5"><strong>192</strong> posts</div>
+                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
                 <div class="pr-5"><strong>201</strong> followers</div>
                 <div class="pr-5"><strong>132</strong> following</div>
             </div>
@@ -25,16 +25,11 @@
     </div>
 
     <div class="row pt-5">
-        <div class="col-4">
-            <img src="{{ asset('img/macrons.jpg') }}" class="w-100" style="height:350px; width:250px;" alt="">
-        </div>
-        <div class="col-4">
-            <img src="{{ asset('img/eggs.jpg') }}" class="w-100" style="height:350px; width:250px;" alt="">
-        </div>
-        <div class="col-4">
-            <img src="{{ asset('img/saucers.jpg') }}" class="w-100" style="height:350px; width:250px;" alt="">
-        </div>
-    </div>
 
+    @foreach($user->posts as $post)
+        <div class="col-4 pb-4">
+            <img src="/storage/{{ $post->image }}" class="w-100" style="height:350px; width:250px;" alt="">
+        </div>
+    @endforeach
 </div>
 @endsection
