@@ -30,8 +30,9 @@ class PostsController extends Controller
             'title' => $data['title'],
             'image' => $imagePath,
         ]);
+       
 
-         return redirect('/profile/' . auth()->user()->id);
+        return redirect('/profile/' . auth()->user()->id);
     }
 
 

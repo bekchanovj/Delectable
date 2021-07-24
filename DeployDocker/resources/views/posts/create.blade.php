@@ -53,33 +53,8 @@
             </div>
         </div>
 
-        <table class="table table-bordered" id="dynamicTable">
-
-            <tr>
-
-                <th>Ingredient</th>
-
-                <th>Qty</th>
-
-                <th>Units</th>
-
-                <th>Action</th>
-
-            </tr>
-
-            <tr>
-
-                <td><input type="text" name="addmore[0][ing]" placeholder="Enter Ingredient" class="form-control" /></td>
-
-                <td><input type="text" name="addmore[0][qty]" placeholder="Enter Qty" class="form-control" /></td>
-
-                <td><input type="text" name="addmore[0][units]" placeholder="Enter Units" class="form-control" /></td>
-
-                <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
-
-            </tr>
-
-        </table>
+        
+        @livewire('ingredients')
 
         <div class="row">
             <label for="image" class="col-md-4 col-form-label">Add Photo</label>

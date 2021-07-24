@@ -20,7 +20,11 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->timestamps();
-            
+
+            $table->string('ing_name');
+            $table->integer('quantity');
+            $table->string('units');
+
             $table->index('user_id');
         });
     }
