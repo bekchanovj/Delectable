@@ -18,22 +18,20 @@
                 <div class="pr-5"><strong>201</strong> followers</div>
                 <div class="pr-5"><strong>132</strong> following</div>
             </div>
-            
+
         </div>
     </div>
 
     <div class="row pt-5">
 
-    @foreach($user->posts as $post)
+        @foreach($user->posts as $post)
         <div class="col-4 pb-4">
             <img src="/storage/{{ $post->image }}" class="w-100" style="height:350px; width:250px;" alt="">
+
+            <p> {{ $post->caption }} </p>
+
+            <p> {{ $post->title }} </p>
         </div>
-        <div class="col-4 pb-4">
-           <p> {{ $post->caption }} </p>
-        </div>
-        <div class="col-4 pb-4">
-           <p> {{ $post->title }} </p>
-        </div>
-    @endforeach
-</div>
-@endsection
+        @endforeach
+    </div>
+    @endsection
