@@ -21,9 +21,14 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->timestamps();
 
-            $table->string('ing_name');
-            $table->integer('quantity');
-            $table->string('units');
+            $table->string('ingredients');
+            $table->string('servings');
+            $table->integer('c_time');
+            $table->integer('p_time');
+            $table->string('notes');
+            $table->string('instructions');
+
+            
 
             $table->index('user_id');
         });

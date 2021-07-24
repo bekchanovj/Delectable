@@ -13,13 +13,13 @@
                 @foreach ($postIngredients as $index => $postIngredients)
                 <tr>
                     <td>
-                        <input type="text" name="postIngredients[{{$index}}][quantity][units]" class="form-control" wire:model="postIngredients.{{$index}}.quantity.units" />
+                        <input type="text" name="postIngredients[{{$index}}][ing_name][quantity][units]" class="form-control" wire:model="postIngredients.{{$index}}.ing_name.quantity.units" />
                     </td>
                     <td>
-                        <input type="number" name="postIngredients[{{$index}}][quantity][units]" class="form-control" wire:model="postIngredients.{{$index}}.quantity.units" />
+                        <input type="number" name="postIngredients[{{$index}}][ing_name][quantity][units]" class="form-control" wire:model="postIngredients.{{$index}}.ing_name.quantity.units" />
                     </td>
                     <td>
-                        <input type="text" name="postIngredients[{{$index}}][quantity][units]" class="form-control" wire:model="postIngredients.{{$index}}.quantity.units" />
+                        <input type="text" name="postIngredients[{{$index}}][ing_name][quantity][units]" class="form-control" wire:model="postIngredients.{{$index}}.ing_name.quantity.units" />
                     </td>
                     <td>
                         <a href="#" wire:click.prevent="removeIngredient({{$index}})">Delete</a>

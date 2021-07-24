@@ -17,6 +17,12 @@ class PostsController extends Controller
         $data = request()->validate([
             'caption' => 'required',
             'title' => 'required',
+            'ingredients' => 'required',
+            'instructions' => 'required',
+            'servings' => 'required',
+            'c_time' => 'required',
+            'p_time' => 'required',
+            'notes' => 'required',
             'image' => 'required|image',
         ]);
 
@@ -25,6 +31,12 @@ class PostsController extends Controller
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
             'title' => $data['title'],
+            'ingredients' => $data['ingredients'],
+            'instructions' => $data['instructions'],
+            'servings' => $data['servings'],
+            'c_time' => $data['c_time'],
+            'p_time' => $data['p_time'],
+            'notes' => $data['notes'],
             'image' => $imagePath,
         ]);
        
