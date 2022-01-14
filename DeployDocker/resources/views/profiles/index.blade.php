@@ -2,46 +2,58 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-3 p-5">
-            <img src="{{ asset('img/cham.jpg') }}" alt="" class="rounded-circle" style="height:150px;">
+    <div class="row pl-3 pr-3">
+        <div class="col-xs-3 pr-5">
+            <img src="{{ $user->profile->profileImage() }}" alt="" class="w-100 rounded-circle" style="height:150px;">
         </div>
-        <div class="col-9 pt-5">
-            <div class="d-flex justify-content-between align-items-baseline">
-                <div>
-                    <h1>{{ $user->name }}</h1>
+        <div class="col-xs-6 pt-2">
+            <div class="pb-3">
+                <div class="d-flex justify-content-between align-items-baseline">
+                    <div class="d-flex align-items-center pb-2">
+                        <div class="h4">{{ $user->name }}</div>
+
+                        <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+                    </div>
+
+                    @can('update', $user->profile)
+                    <a href="/post/create">Create a new recipe</a>
+                    @endcan
+
                 </div>
-                <a href="/post/create">Create a new recipe</a>
-            </div>
-            <div class="d-flex">
-                <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
+
+                @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                @endcan
             </div>
 
+
+            <div class="d-flex">
+                <div class="pr-5 pb-4"><strong>{{ $postCount }}</strong> posts</div>
+                <div class="pr-5 pb-4"><strong>{{ $followerCount }}</strong> followers</div>
+                <div class="pr-5 pb-4"><strong>{{ $followingCount }}</strong> following</div>
+            </div>
+
+
+            <p>
+                <strong>{{$user->profile->title}}</strong></br>
+
+                {{$user->profile->description}}</br>
+
+                <a href="{{$user->profile->url}}">{{$user->profile->url}}</a>
+            </p>
         </div>
     </div>
 
+
     <div class="row pt-5">
-
         @foreach($user->posts as $post)
-        <div class="col-4 pb-4">
-            <img src="/storage/{{ $post->image }}" class="w-100" style="height:350px; width:250px;" alt="">
-
-            <p> <b>Title:</b> {{ $post->title }} </p>
-
-            <p> <b>Description:</b> {{ $post->caption }} </p>            
-
-            <p> <b>Servings:</b> {{ $post->servings }} </p>
-
-            <p> <b>Cooking Time:</b> {{ $post->c_time }} minutes</p>
-
-            <p> <b>Prep Time:</b> {{ $post->p_time }} minutes</p>
-
-            <p> <b>Ingredients:</b> {{ $post->ingredients }} </p>
-
-            <p> <b>Instructions:</b> {{ $post->instructions }} </p>
-
-            <p> <b>Notes:</b> {{ $post->notes }} </p>
+        <div class="col-lg-4 pb-4">
+            @include('layouts/postbuild').
+            <div float-right>
+                <a href="posts/{{ $post->id }}/edit">Edit</a>
+            </div>
         </div>
         @endforeach
     </div>
-    @endsection
+</div>
+@endsection
